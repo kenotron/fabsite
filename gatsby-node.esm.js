@@ -1,9 +1,8 @@
-import path from "path";
-import { createFilePath } from "gatsby-source-filesystem";
+import path from 'path';
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
-  const blogEntry = path.resolve("src/templates/blog-entry.tsx");
+  const DocumentPagePath = path.resolve('src/templates/DocumentPage.tsx');
   return graphql(`
     {
       allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
@@ -26,7 +25,7 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach((post, index) => {
       createPage({
         path: post.node.frontmatter.path,
-        component: blogEntry,
+        component: DocumentPagePath,
         context: {
           slug: post.node.frontmatter.path
         }

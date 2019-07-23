@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
+import React from 'react';
+import { Link, graphql } from 'gatsby';
 
 interface IIndexProps {
   data: {
@@ -29,7 +29,11 @@ export default (props: IIndexProps) => {
   return (
     <div>
       <h1>Welcome to {data.site.siteMetadata.title}</h1>
-      <ul><li><Link to={'/'}>Home</Link></li><li><Link to={'about'}>About</Link></li></ul>
+      <ul>
+        <li>
+          <Link to={'/'}>Home</Link>
+        </li>
+      </ul>
       <ul>
         {posts.map((post, i) => {
           const {

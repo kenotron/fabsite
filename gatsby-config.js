@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Micah Godbolt Blog',
-    description: 'This is my blog',
-    author: 'Micah Godbolt'
+    title: 'Fabric Website 2.0',
+    description: 'UI Fabric is the World Famous Fluent Component Library',
+    author: 'What'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,8 +12,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/blog`,
-        name: 'blog'
+        path: `${__dirname}/content/docs`,
+        name: 'docs'
       }
     }
   ]

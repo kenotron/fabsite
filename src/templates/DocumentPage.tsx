@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-export const BlogEntry = (props: any) => {
+export const DocumentPage = (props: any) => {
   const post = props.data.mdx;
 
   return (
@@ -14,10 +14,10 @@ export const BlogEntry = (props: any) => {
   );
 };
 
-export default BlogEntry;
+export default DocumentPage;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query DocumentPagePathBySlug($slug: String!) {
     mdx(frontmatter: { path: { eq: $slug } }) {
       frontmatter {
         title
