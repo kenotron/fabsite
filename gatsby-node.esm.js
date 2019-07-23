@@ -1,4 +1,24 @@
 import path from 'path';
+import fs from 'fs';
+
+import * as uifabricDocs from './uifabric-docs';
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions;
+  for (let pageProps of Object.values(uifabricDocs)) {
+    createNode({
+      id: createNodeId(`UIFabricDoc:${pageProps.componentName}`),
+      parent: null,
+      children: [],
+      pageProps,
+      internal: {
+        mediaType: 'html',
+        type: 'componentDoc',
+        contentDigest: createContentDigest(pageProps)
+      }
+    });
+  }
+};
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
