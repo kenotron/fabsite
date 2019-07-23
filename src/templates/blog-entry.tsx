@@ -1,6 +1,6 @@
-import React from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import { MDXRenderer } from "gatsby-mdx";
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 export const BlogEntry = (props: any) => {
   const post = props.data.mdx;
@@ -8,7 +8,7 @@ export const BlogEntry = (props: any) => {
   return (
     <div className="blog-post-container">
       <div className="blog-post">
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+        <MDXRenderer>{post.rawBody}</MDXRenderer>
       </div>
     </div>
   );
@@ -23,9 +23,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
       }
-      code {
-        body
-      }
+      rawBody
     }
   }
 `;
