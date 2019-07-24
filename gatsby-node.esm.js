@@ -1,100 +1,57 @@
 import path from 'path';
-import mdx from '@mdx-js/mdx';
-import fs from 'fs';
+import crypto from 'crypto';
 
-import * as uifabricDocs from './uifabric-docs';
-
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-  const { createNode } = actions;
-  for (let pageProps of Object.values(uifabricDocs)) {
-    const pageId = createNodeId(`uifabric:componentdoc:${pageProps.componentName}`);
-    const overviewId = createNodeId(`uifabric:componentdoc:overview:${pageProps.componentName}`);
-    const dosId = createNodeId(`uifabric:componentdoc:dos:${pageProps.componentName}`);
-    const dontsId = createNodeId(`uifabric:componentdoc:donts:${pageProps.componentName}`);
-
-    createNode({
-      id: overviewId,
-      parent: pageId,
-      children: [],
-      internal: {
-        mediaType: 'text/markdown',
-        type: 'overview',
-        contentDigest: createContentDigest(pageProps.overview),
-        content: pageProps.overview
-      }
-    });
-
-    createNode({
-      id: dosId,
-      parent: pageId,
-      children: [],
-      internal: {
-        mediaType: 'text/markdown',
-        type: 'dos',
-        contentDigest: createContentDigest(pageProps.dos),
-        content: pageProps.dos
-      }
-    });
-
-    createNode({
-      id: dontsId,
-      parent: pageId,
-      children: [],
-      internal: {
-        mediaType: 'text/markdown',
-        type: 'donts',
-        contentDigest: createContentDigest(pageProps.donts),
-        content: pageProps.donts
-      }
-    });
-
-    createNode({
-      id: pageId,
-      parent: null,
-      children: [overviewId, dosId, dontsId],
-      pageProps,
-      internal: {
-        mediaType: 'text/markdown',
-        type: 'componentDoc',
-        contentDigest: createContentDigest(pageProps)
-      }
+exports.onCreateNode = ({ node, actions, createNodeId }) => {
+  const { createNode, createParentChildLink } = actions;
+  if (node && node.internal.type === 'Mdx' && node.fileAbsolutePath && node.fileAbsolutePath.includes('content/docs')) {
+    ['overview', 'dos', 'donts'].forEach(field => {
+      const childNode = {
+        id: createNodeId(`${node.id}>>>${field}`),
+        internal: {
+          mediaType: 'text/markdown',
+          type: `doc_${field}`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(node.frontmatter[field]))
+            .digest(`hex`),
+          content: node.frontmatter[field]
+        }
+      };
+      createNode(childNode);
+      createParentChildLink({ parent: node, child: childNode });
     });
   }
-
-  console.log('done');
 };
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const DocumentPagePath = path.resolve('src/templates/DocumentPage.tsx');
-  return graphql(`
-    query AllComponentDocQuery {
-      allComponentDoc {
+  const docPage = path.resolve('src/templates/DocumentPage.tsx');
+  const result = await graphql(`
+    {
+      allMdx {
         nodes {
-          pageProps {
-            componentName
+          frontmatter {
+            path
+            title
           }
-          id
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
+  `);
 
-    const docs = result.data.allComponentDoc.nodes;
+  if (result.errors) {
+    return Promise.reject(result.errors);
+  }
 
-    docs.forEach((doc, index) => {
-      createPage({
-        path: '/components/' + doc.pageProps.componentName,
-        component: DocumentPagePath,
-        context: {
-          componentName: doc.pageProps.componentName
-        }
-      });
+  const posts = result.data.allMdx.edges;
+
+  posts.forEach((post, index) => {
+    createPage({
+      path: post.node.frontmatter.path,
+      component: docPage,
+      context: {
+        componentName: post.node.frontmatter.title
+      }
     });
-
-    return null;
   });
 };

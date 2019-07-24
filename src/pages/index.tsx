@@ -13,7 +13,6 @@ interface IIndexProps {
         node: {
           excerpt: string;
           frontmatter: {
-            date: string;
             title: string;
             path: string;
           };
@@ -38,7 +37,7 @@ export default (props: IIndexProps) => {
         {posts.map((post, i) => {
           const {
             node: {
-              frontmatter: { title, date, path },
+              frontmatter: { title, path },
               excerpt
             }
           } = post;
@@ -47,7 +46,6 @@ export default (props: IIndexProps) => {
               <h3>
                 <Link to={path}>{title}</Link>
               </h3>
-              <small>{date}</small>
               <p> {excerpt} </p>
             </li>
           );
@@ -64,12 +62,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx {
       edges {
         node {
           excerpt
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
             path
           }
