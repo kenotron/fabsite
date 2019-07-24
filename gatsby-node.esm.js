@@ -1,37 +1,80 @@
 import path from 'path';
+import mdx from '@mdx-js/mdx';
 import fs from 'fs';
 
 import * as uifabricDocs from './uifabric-docs';
 
-exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
   for (let pageProps of Object.values(uifabricDocs)) {
+    const pageId = createNodeId(`uifabric:componentdoc:${pageProps.componentName}`);
+    const overviewId = createNodeId(`uifabric:componentdoc:overview:${pageProps.componentName}`);
+    const dosId = createNodeId(`uifabric:componentdoc:dos:${pageProps.componentName}`);
+    const dontsId = createNodeId(`uifabric:componentdoc:donts:${pageProps.componentName}`);
+
     createNode({
-      id: createNodeId(`UIFabricDoc:${pageProps.componentName}`),
-      parent: null,
+      id: overviewId,
+      parent: pageId,
       children: [],
+      internal: {
+        mediaType: 'text/markdown',
+        type: 'overview',
+        contentDigest: createContentDigest(pageProps.overview),
+        content: pageProps.overview
+      }
+    });
+
+    createNode({
+      id: dosId,
+      parent: pageId,
+      children: [],
+      internal: {
+        mediaType: 'text/markdown',
+        type: 'dos',
+        contentDigest: createContentDigest(pageProps.dos),
+        content: pageProps.dos
+      }
+    });
+
+    createNode({
+      id: dontsId,
+      parent: pageId,
+      children: [],
+      internal: {
+        mediaType: 'text/markdown',
+        type: 'donts',
+        contentDigest: createContentDigest(pageProps.donts),
+        content: pageProps.donts
+      }
+    });
+
+    createNode({
+      id: pageId,
+      parent: null,
+      children: [overviewId, dosId, dontsId],
       pageProps,
       internal: {
-        mediaType: 'html',
+        mediaType: 'text/markdown',
         type: 'componentDoc',
         contentDigest: createContentDigest(pageProps)
       }
     });
   }
+
+  console.log('done');
 };
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
   const DocumentPagePath = path.resolve('src/templates/DocumentPage.tsx');
   return graphql(`
-    {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
-        edges {
-          node {
-            frontmatter {
-              path
-            }
+    query AllComponentDocQuery {
+      allComponentDoc {
+        nodes {
+          pageProps {
+            componentName
           }
+          id
         }
       }
     }
@@ -40,14 +83,14 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMdx.edges;
+    const docs = result.data.allComponentDoc.nodes;
 
-    posts.forEach((post, index) => {
+    docs.forEach((doc, index) => {
       createPage({
-        path: post.node.frontmatter.path,
+        path: '/components/' + doc.pageProps.componentName,
         component: DocumentPagePath,
         context: {
-          slug: post.node.frontmatter.path
+          componentName: doc.pageProps.componentName
         }
       });
     });
