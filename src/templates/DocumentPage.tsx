@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 export const DocumentPage = (props: any) => {
-  const { pageProps: doc, overview, dos, donts } = props.data.componentDoc;
+  const doc = props.data.mdx;
 
   return (
     <div className="blog-post-container">
       <div className="blog-post">
         <h1>{doc.componentName}</h1>
-        <MDXRenderer>{doc.mdx.body}</MDXRenderer>
+        <MDXRenderer>{doc.body}</MDXRenderer>
       </div>
     </div>
   );
@@ -19,11 +19,10 @@ export default DocumentPage;
 
 export const pageQuery = graphql`
   query DocumentPagePathBySlug($componentName: String!) {
-    mdx(frontmatter: { path: { eq: $componentName } }) {
+    mdx(frontmatter: { title: { eq: $componentName } }) {
       frontmatter {
         title
       }
-
       body
     }
   }

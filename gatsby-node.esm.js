@@ -3,10 +3,10 @@ import crypto from 'crypto';
 
 exports.onCreateNode = ({ node, actions, createNodeId }) => {
   const { createNode, createParentChildLink } = actions;
-  if (node && node.internal.type === 'Mdx' && node.fileAbsolutePath && node.fileAbsolutePath.includes('content/docs')) {
+  if (node && node.internal.type === 'Mdx' && node.frontmatter.path) {
     ['overview', 'dos', 'donts'].forEach(field => {
       const childNode = {
-        id: createNodeId(`${node.id}>>>${field}`),
+        id: createNodeId(`${node.id} >>> ${field}`),
         internal: {
           mediaType: 'text/markdown',
           type: `doc_${field}`,
@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const docPage = path.resolve('src/templates/DocumentPage.tsx');
   const result = await graphql(`
     {
-      allMdx {
+      allMdx(filter: { frontmatter: { path: { ne: null } } }) {
         nodes {
           frontmatter {
             path
@@ -43,14 +43,16 @@ exports.createPages = async ({ actions, graphql }) => {
     return Promise.reject(result.errors);
   }
 
-  const posts = result.data.allMdx.edges;
+  const posts = result.data.allMdx.nodes;
 
   posts.forEach((post, index) => {
+    console.log('CREATING PAGE: ' + post.frontmatter.path);
+
     createPage({
-      path: post.node.frontmatter.path,
+      path: post.frontmatter.path,
       component: docPage,
       context: {
-        componentName: post.node.frontmatter.title
+        componentName: post.frontmatter.title
       }
     });
   });
