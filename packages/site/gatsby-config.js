@@ -7,7 +7,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [require('remark-react-live')]
+      }
+    },
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,

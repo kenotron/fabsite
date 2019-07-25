@@ -48,7 +48,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-live": "^2.1.2",
-    "react-markdown": "^4.0.8"
+    "react-markdown": "^4.0.8",
+    "remark-react-live": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

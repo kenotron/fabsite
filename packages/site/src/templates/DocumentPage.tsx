@@ -6,7 +6,7 @@ import { MDXProvider } from '@mdx-js/react';
 import CodeBlock from '../components/CodeBlock';
 const components = {
   pre: props => <div {...props} />,
-  code: CodeBlock
+  CodeBlock
 };
 
 export const DocumentPage = (props: any) => {

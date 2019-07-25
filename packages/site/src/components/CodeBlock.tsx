@@ -1,14 +1,14 @@
-// src/components/CodeBlock.js
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import { Toggle } from 'office-ui-fabric-react';
-export default ({ children, className, live }) => {
+export default props => {
+  const { children, className, live, scope, noInline } = props;
+
   const language = className.replace(/language-/, '');
   if (live) {
     return (
       <div style={{ marginTop: '40px' }}>
-        <LiveProvider code={children} scope={{ Toggle }}>
+        <LiveProvider code={children} scope={scope}>
           <LivePreview />
           <LiveEditor />
           <LiveError />
