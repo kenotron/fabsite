@@ -8,7 +8,7 @@ export default props => {
   if (live) {
     return (
       <div style={{ marginTop: '40px' }}>
-        <LiveProvider code={children} scope={scope}>
+        <LiveProvider code={children} scope={scope} noInline={noInline}>
           <LivePreview />
           <LiveEditor />
           <LiveError />

@@ -7,20 +7,125 @@ dos: |-
 donts: |-
   - Use ActivityItems to render large amounts of body text; they are meant to be concise descriptions of a specific activity.
 overview: |-
-  ActivityItems represent individual units of a user's activity, such as making a comment, mentioning someone with an @mention, editing a document, or moving a file.
-bestPractices: |-
-  asdfasdf
+  Toggles represent a physical switch that allows users to turn things on or off. Use Toggles to present users with two mutually exclusive options (like on/off), where choosing an option results in an immediate action. Use a Toggle for binary operations that take effect right after the user flips the Toggle. For example, use a Toggle to turn services or hardware components on or off. In other words, if a physical switch would work for the action, a Toggle is probably the best control to use.
+
+  ## Choosing between Toggle and Checkbox
+
+  For some actions, either a Toggle or a Checkbox might work. To decide which control would work better, follow these tips:
+    - Use a Toggle for binary settings when changes become effective immediately after the user changes them.
+    - In the above example, it's clear with the Toggle that the wireless is set to "On." But with the Checkbox, the user needs to think about whether the wireless is on now or whether they need to check the box to turn wireless on.
+    - Use a Checkbox when the user has to perform extra steps for changes to be effective. For example, if the user must click a "Submit", "Next", "Ok" button to apply changes, use a Checkbox.
 ---
 
-import { Toggle, Button } from 'office-ui-fabric-react';
+import { Toggle, Link, TooltipHost, Icon } from 'office-ui-fabric-react';
 
-## Examples
+## Usage
 
-And here's a bunch of examples
+### Default Toggles
 
 ```js live=true
 <div>
-  <Toggle label="hi" />
-  <Button>hello</Button>
+  <Toggle
+    defaultChecked={true}
+    label="Enabled and checked"
+    onText={3}
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={false}
+    label="Enabled and unchecked"
+    onText="On"
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    disabled={true}
+    label="Disabled and checked"
+    onText="On"
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={false}
+    disabled={true}
+    label="Disabled and unchecked"
+    onText="On"
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    label="With inline label"
+    inlineLabel={true}
+    onText="On"
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    label={
+      <div>
+        <Link href="https://bing.com" target="_blank">
+          Learn More
+        </Link>
+        <TooltipHost content="JSX Element Label">
+          <Icon iconName="Info" />
+        </TooltipHost>
+      </div>
+    }
+    inlineLabel={true}
+    onText="On"
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    disabled={true}
+    label="Disabled with inline label"
+    inlineLabel={true}
+    onText="On"
+    offText="Off"
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    label="With inline label and without onText and offText"
+    inlineLabel={true}
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    label={
+      <div>
+        <Link href="https://bing.com" target="_blank">
+          Learn More
+        </Link>
+        <TooltipHost content="JSX Element Label">
+          <Icon iconName="Info" />
+        </TooltipHost>
+      </div>
+    }
+    inlineLabel={true}
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
+  <Toggle
+    defaultChecked={true}
+    disabled={true}
+    label="Disabled with inline label and without onText and offText"
+    inlineLabel={true}
+    onFocus={() => console.log('onFocus called')}
+    onBlur={() => console.log('onBlur called')}
+  />
 </div>
 ```

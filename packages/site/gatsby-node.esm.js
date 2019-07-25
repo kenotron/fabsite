@@ -2,25 +2,25 @@ import path from 'path';
 import crypto from 'crypto';
 
 exports.onCreateNode = ({ node, actions, createNodeId }) => {
-  // const { createNode, createParentChildLink } = actions;
-  // if (node && node.internal.type === 'Mdx' && node.frontmatter.path) {
-  //   ['overview', 'dos', 'donts'].forEach(field => {
-  //     const childNode = {
-  //       id: createNodeId(`${node.id} >>> ${field}`),
-  //       internal: {
-  //         mediaType: 'text/mdx',
-  //         type: `doc_${field}`,
-  //         contentDigest: crypto
-  //           .createHash(`md5`)
-  //           .update(JSON.stringify(node.frontmatter[field]))
-  //           .digest(`hex`),
-  //         content: node.frontmatter[field]
-  //       }
-  //     };
-  //     createNode(childNode);
-  //     createParentChildLink({ parent: node, child: childNode });
-  //   });
-  // }
+  const { createNode, createParentChildLink } = actions;
+  if (node && node.internal.type === 'Mdx' && node.frontmatter.path) {
+    ['overview', 'dos', 'donts'].forEach(field => {
+      const childNode = {
+        id: createNodeId(`${node.id} >>> ${field}`),
+        internal: {
+          mediaType: 'text/markdown',
+          type: `doc_${field}`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(node.frontmatter[field]))
+            .digest(`hex`),
+          content: node.frontmatter[field]
+        }
+      };
+      createNode(childNode);
+      createParentChildLink({ parent: node, child: childNode });
+    });
+  }
 };
 
 exports.createPages = async ({ actions, graphql }) => {
