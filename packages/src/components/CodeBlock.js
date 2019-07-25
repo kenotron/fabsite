@@ -2,12 +2,13 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import { Toggle } from 'office-ui-fabric-react';
 export default ({ children, className, live }) => {
   const language = className.replace(/language-/, '');
   if (live) {
     return (
       <div style={{ marginTop: '40px' }}>
-        <LiveProvider code={children}>
+        <LiveProvider code={children} scope={{ Toggle }}>
           <LivePreview />
           <LiveEditor />
           <LiveError />
