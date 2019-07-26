@@ -3,10 +3,8 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 
-import CodeBlock from '../components/CodeBlock';
 const components = {
-  pre: props => <div {...props} />,
-  CodeBlock
+  pre: props => <div {...props} />
 };
 
 export const DocumentPage = (props: any) => {

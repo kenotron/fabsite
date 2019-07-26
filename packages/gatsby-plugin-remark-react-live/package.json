@@ -1,0 +1,15 @@
+{
+  "name": "gatsby-plugin-remark-react-live",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "gatsby-plugin-mdx": "^1.0.17",
+    "@babel/parser": "^7.5.5",
+    "@babel/traverse": "7.4.5",
+    "lodash": "^4.17.15",
+    "unist-util-visit": "^1.4.1",
+    "unist-builder": "^1.0.4",
+    "unist-util-modify-children": "^1.1.4"
+  }
+}

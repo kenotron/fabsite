@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "../remark-react-live/src/components/WorkList"],
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
