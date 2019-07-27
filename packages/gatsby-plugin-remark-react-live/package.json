@@ -10,6 +10,9 @@
     "lodash": "^4.17.15",
     "unist-util-visit": "^1.4.1",
     "unist-builder": "^1.0.4",
-    "unist-util-modify-children": "^1.1.4"
+    "unist-util-modify-children": "^1.1.4",
+    "gatsby": "^2.13.41",
+    "react-live": "^2.1.2",
+    "prism-react-renderer": "0.1.7"
   }
 }

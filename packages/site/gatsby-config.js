@@ -4,16 +4,10 @@ module.exports = {
     description: 'UI Fabric is the World Famous Fluent Component Library'
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-remark-react-live`,
-    `gatsby-plugin-netlify-cms`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/docs`,
-        name: 'docs'
-      }
-    }
+      resolve: `gatsby-theme-live-doc`,
+      options: {}
+    },
+    `gatsby-plugin-netlify-cms`
   ]
 };

@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: micahgodbolt/micahgodbolt.com
+  branch: gatsby
+
+publish_mode: editorial_workflow
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: componentDoc
+    label: Component Docs
+    folder: content/docs
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+      - { name: dos, label: "Do's", widget: markdown }
+      - { name: donts, label: "Dont's", widget: markdown }
+      - { name: overview, label: Overview, widget: markdown }

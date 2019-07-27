@@ -24,5 +24,8 @@ import { mergeStyles } from 'office-ui-fabric-react';
 ### Default Toggles
 
 ```js live noInline
-<button>hi</button>
+const className = mergeStyles({ background: 'red' });
+
+// Render with the generated class name
+render(<div className={className}>hi</div>);
 ```
