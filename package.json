@@ -4,10 +4,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/kenotron/fabsite.git",
-  "author": "Ken <kchau@microsoft.com>",
+  "author": "Ken Chau <kchau@microsoft.com>",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "lerna": "^3.16.4",
+    "beachball": "^1.11.0"
+  },
+  "scripts": {
+    "build": "lerna run build --stream",
+    "change": "beachball change",
+    "checkchange": "beachball check --changehint \"Run yarn change to create change file\"",
+    "pub": "beachball publish"
   },
   "workspaces": [
     "packages/*"
