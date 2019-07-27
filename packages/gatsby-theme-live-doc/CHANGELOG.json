@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-theme-live-doc",
+  "entries": [
+    {
+      "date": "Sat, 27 Jul 2019 05:30:46 GMT",
+      "tag": "gatsby-theme-live-doc_v0.1.1",
+      "version": "0.1.1",
+      "comments": {
+        "patch": [
+          {
+            "comment": "initial release",
+            "author": "kchau@microsoft.com",
+            "commit": "2e5c736a8314d755ea099c62ad8e1312b8a30cd3"
+          }
+        ]
+      }
+    }
+  ]
+}
