@@ -9,24 +9,24 @@ const components = {
 
 export const DocumentPage = (props: any) => {
   const doc = props.data.mdx;
-
+  console.log(doc);
   return (
     <MDXProvider components={components}>
       <div className="blog-post-container">
         <div className="blog-post">
           <h1>{doc.componentName}</h1>
           <h2>Overview</h2>
-          <MDXRenderer>{doc.overview.mdx.body}</MDXRenderer>
+          <MDXRenderer>{doc.overview[0].mdx.body}</MDXRenderer>
 
           <div style={{ display: 'flex' }}>
             <div>
               <h2>Do's</h2>
-              <MDXRenderer>{doc.dos.mdx.body}</MDXRenderer>
+              <MDXRenderer>{doc.dos[0].mdx.body}</MDXRenderer>
             </div>
 
             <div>
               <h2>Dont's</h2>
-              <MDXRenderer>{doc.donts.mdx.body}</MDXRenderer>
+              <MDXRenderer>{doc.donts[0].mdx.body}</MDXRenderer>
             </div>
           </div>
           <MDXRenderer>{doc.body}</MDXRenderer>
@@ -46,19 +46,19 @@ export const pageQuery = graphql`
         overview
       }
       body
-      overview: childDocOverview {
+      overview: childrenDocOverview {
         mdx: childMdx {
           body
         }
       }
 
-      dos: childDocDos {
+      dos: childrenDocDos {
         mdx: childMdx {
           body
         }
       }
 
-      donts: childDocDonts {
+      donts: childrenDocDonts {
         mdx: childMdx {
           body
         }

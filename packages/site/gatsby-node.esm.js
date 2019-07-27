@@ -3,7 +3,7 @@ import crypto from 'crypto';
 
 exports.onCreateNode = ({ node, actions, createNodeId }) => {
   const { createNode, createParentChildLink } = actions;
-  if (node && node.internal.type === 'Mdx' && node.frontmatter.path) {
+  if (node && node.internal.type === 'Mdx' && node.frontmatter && node.frontmatter.path) {
     ['overview', 'dos', 'donts'].forEach(field => {
       const childNode = {
         id: createNodeId(`${node.id} >>> ${field}`),
@@ -12,7 +12,7 @@ exports.onCreateNode = ({ node, actions, createNodeId }) => {
           type: `doc_${field}`,
           contentDigest: crypto
             .createHash(`md5`)
-            .update(JSON.stringify(node.frontmatter[field]))
+            .update(JSON.stringify(node.frontmatter[field]) + node.id + field)
             .digest(`hex`),
           content: node.frontmatter[field]
         }

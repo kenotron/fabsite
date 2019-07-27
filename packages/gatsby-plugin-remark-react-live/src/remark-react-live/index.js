@@ -35,14 +35,16 @@ function transformer(tree, files) {
         return index;
       }
 
-      if (node.type === 'code' && node.meta === 'live=true') {
+      const meta = parseMeta(node.meta);
+
+      if (node.type === 'code' && meta.live) {
         parent.children.splice(
           index,
           1,
           u('jsx', {
-            value: `<CodeBlock scope={{${importVariables.join(',')}}} live={true} className="language-${node.lang}">{\`${
-              node.value
-            }\`}</CodeBlock>`
+            value: `<CodeBlock scope={{${importVariables.join(',')}}} live={true} className="language-${node.lang}" noInline={${
+              meta.noInline
+            }}>{\`${node.value}\`}</CodeBlock>`
           })
         );
         return index + 1;
@@ -51,6 +53,23 @@ function transformer(tree, files) {
   }
 
   return tree;
+}
+
+function parseMeta(meta) {
+  const info = {};
+
+  if (meta) {
+    const splitBySpace = meta.split(/\s+/);
+    splitBySpace.forEach(entry => {
+      const pair = entry.split(/=/);
+      if (pair.length === 2) {
+        info[pair[0]] = pair[1];
+      } else {
+        info[pair[0]] = true;
+      }
+    });
+  }
+  return info;
 }
 
 module.exports = function attacher() {
