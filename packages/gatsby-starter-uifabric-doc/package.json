@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-uifabric-doc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simplified bare-bones starter for Gatsby",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
@@ -29,7 +29,7 @@
     "prism-react-renderer": "^0.1.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "gatsby-theme-live-doc": "*",
+    "gatsby-theme-live-doc": "0.1.0",
     "unified": "^8.3.2",
     "remark-parse": "^7.0.0",
     "remark-react": "^6.0.0"
