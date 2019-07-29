@@ -11,6 +11,7 @@
     "beachball": "^1.11.0"
   },
   "scripts": {
+    "start": "yarn workspace gatsby-starter-uifabric-doc start",
     "build": "lerna run build --stream",
     "change": "beachball change",
     "checkchange": "beachball check --changehint \"Run yarn change to create change file\"",
