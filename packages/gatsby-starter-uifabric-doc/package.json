@@ -26,6 +26,7 @@
     "@types/react-helmet": "^5.0.8",
     "@mdx-js/mdx": "^1.1.0",
     "gatsby": "^2.13.41",
+    "office-ui-fabric-react": "^7.14.1",
     "prism-react-renderer": "^0.1.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
