@@ -41,14 +41,34 @@ export default (props: any) => {
           }
         }
       }
+
+      allMarkdownRemark {
+        nodes {
+          frontmatter {
+            title
+            path
+          }
+        }
+      }
     }
   `);
 
   const {
-    allMdx: { nodes }
+    allMdx: { nodes },
+    allMarkdownRemark: { nodes: blogNodes }
   } = data;
 
   const groups = aggregateCategory(nodes);
+
+  groups.links.push({
+    name: 'Posts',
+    links: blogNodes.map(blog => ({
+      name: blog.frontmatter.title,
+      url: blog.frontmatter.path,
+      key: blog.frontmatter.title
+    })),
+    isExpanded: true
+  });
 
   return (
     <div style={{ gridArea: 'sidebar' }}>
