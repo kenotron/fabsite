@@ -1,6 +1,7 @@
 ---
 path: /components/Toggle
 title: Toggle
+category: Component
 dos: |-
   - Only replace the On and Off labels if there are more specific labels for the setting. If there are short (3-4 characters) labels that represent binary opposites that are more appropriate for a particular setting, use them. For example, you might use "Show/Hide" if the setting is "Show images."
   - Let the label serve as the aria-label for the Toggle if possible. If necessary, set an aria-label that describes the ON action of the Toggle (e.g., Show images) and let the metadata (i.e., aria-checked) tell the screen reader the state.
@@ -21,48 +22,46 @@ import { Toggle, Link, TooltipHost, Icon, Text } from 'office-ui-fabric-react';
 
 ## Usage
 
+```js live=true
+<Toggle
+  defaultChecked={true}
+  label="Enabled and checked"
+  onText={3}
+  offText="Off"
+  onFocus={() => console.log('onFocus called')}
+  onBlur={() => console.log('onBlur called')}
+/>
+```
 
 ```js live=true
-  <Toggle
-    defaultChecked={true}
-    label="Enabled and checked"
-    onText={3}
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
+<Toggle
+  defaultChecked={true}
+  label="With inline label"
+  inlineLabel={true}
+  onText="On"
+  offText="Off"
+  onFocus={() => console.log('onFocus called')}
+  onBlur={() => console.log('onBlur called')}
+/>
 ```
 
-```js live=true 
-  <Toggle
-    defaultChecked={true}
-    label="With inline label"
-    inlineLabel={true}
-    onText="On"
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-```
-
-```js live=true  
-  <Toggle
-    defaultChecked={true}
-    label={
-      <div>
-        <Link href="https://bing.com" target="_blank">
-          With Link
-        </Link>
-        <TooltipHost content="JSX Element Label">
-          <Icon iconName="Info" />
-        </TooltipHost>
-      </div>
-    }
-    inlineLabel={true}
-    onText="On"
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-  
+```js live=true
+<Toggle
+  defaultChecked={true}
+  label={
+    <div>
+      <Link href="https://bing.com" target="_blank">
+        With Link
+      </Link>
+      <TooltipHost content="JSX Element Label">
+        <Icon iconName="Info" />
+      </TooltipHost>
+    </div>
+  }
+  inlineLabel={true}
+  onText="On"
+  offText="Off"
+  onFocus={() => console.log('onFocus called')}
+  onBlur={() => console.log('onBlur called')}
+/>
 ```

@@ -1,7 +1,7 @@
 ---
 path: /components/MergeStyles
 title: MergeStyles
-
+category: Utilities
 overview: |-
   The `merge-styles` library provides utilities for loading styles through javascript. It is designed to make it simple to style components through javascript. It generates css classes, rather than using inline styling, to ensure we can use css features like pseudo selectors (:hover) and parent/child selectors (media queries).
 
@@ -10,20 +10,17 @@ overview: |-
 
 import { mergeStyles, mergeStyleSets } from 'office-ui-fabric-react';
 
-
 ### MergeStyles
 
-MergeStyles returns a className (like `css-0`) which can be used anywhere.  
+MergeStyles returns a className (like `css-0`) which can be used anywhere.
 
 ```js live noInline
-const className = mergeStyles({ 
+const className = mergeStyles({
   backgroundColor: 'red',
   color: 'white'
- });
+});
 
-render(
-  <div className={className}>hi</div>
-);
+render(<div className={className}>hi</div>);
 ```
 
 ### MergeStyleSets
@@ -42,25 +39,22 @@ Apply these classNames to your components and the styles will be applied.
 
 ```js live noInline
 let classNames = mergeStyleSets({
-  root: { background: 'red'},
-  title: { backgroundColor: 'green'},
-  button: { 
-    border: 'none', 
+  root: { background: 'red' },
+  title: { backgroundColor: 'green' },
+  button: {
+    border: 'none',
     margin: 10,
     selectors: {
-      "&:hover":{
+      '&:hover': {
         background: 'purple'
       }
     }
   }
-})
+});
 
-
-render (
+render(
   <div className={classNames.root}>
-    <h1 className={classNames.title}>
-      Hello World
-    </h1>
+    <h1 className={classNames.title}>Hello World</h1>
     <button className={classNames.button}>Click Me</button>
   </div>
 );
