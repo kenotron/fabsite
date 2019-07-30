@@ -16,7 +16,7 @@ const components = {
 const pageGridStyles = {
   gridTemplateAreas: '"head head" "sidebar main"',
   gridTemplateRows: '50px 1fr',
-  gridTemplateColumns: '300px 1fr',
+  gridTemplateColumns: '300px 1024px',
 
   display: 'grid'
 };
