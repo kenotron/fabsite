@@ -29,7 +29,7 @@ function aggregateCategory(nodes) {
 export default (props: any) => {
   const data = useStaticQuery(graphql`
     query SidebarQuery {
-      allMdx {
+      allMdx(filter: { frontmatter: { category: { ne: null } } }) {
         nodes {
           frontmatter {
             title
