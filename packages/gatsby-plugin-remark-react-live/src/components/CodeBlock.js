@@ -6,7 +6,10 @@ export default props => {
   const { children, className, live, scope, noInline } = props;
 
   const language = className.replace(/language-/, '');
-  if (live) {
+
+  console.log(props);
+
+  if (props.live) {
     return (
       <div style={{ margin: '40px 0' }}>
         <LiveProvider code={children} scope={scope} noInline={noInline} theme={vsDarkTheme}>

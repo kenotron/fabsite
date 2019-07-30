@@ -37,12 +37,12 @@ function transformer(tree, files) {
 
       const meta = parseMeta(node.meta);
 
-      if (node.type === 'code' && meta.live) {
+      if (node.type === 'code') {
         parent.children.splice(
           index,
           1,
           u('jsx', {
-            value: `<CodeBlock scope={{${importVariables.join(',')}}} live={true} className="language-${node.lang}" noInline={${
+            value: `<CodeBlock scope={{${importVariables.join(',')}}} live={${meta.live}} className="language-${node.lang}" noInline={${
               meta.noInline
             }}>{\`${node.value}\`}</CodeBlock>`
           })

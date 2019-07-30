@@ -14,7 +14,7 @@ import { mergeStyles, mergeStyleSets } from 'office-ui-fabric-react';
 
 MergeStyles returns a className (like `css-0`) which can be used anywhere.
 
-```js live noInline
+```js
 const className = mergeStyles({
   backgroundColor: 'red',
   color: 'white'
@@ -37,7 +37,7 @@ Often you want to return a set of styles. This is where you'd use `mergeStyleSet
 
 Apply these classNames to your components and the styles will be applied.
 
-```js live noInline
+```js
 let classNames = mergeStyleSets({
   root: { background: 'red' },
   title: { backgroundColor: 'green' },
