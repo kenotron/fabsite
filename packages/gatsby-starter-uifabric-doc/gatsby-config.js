@@ -8,6 +8,13 @@ module.exports = {
       resolve: `gatsby-theme-live-doc`,
       options: {}
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `content/blog`,
+        name: 'blog'
+      }
+    },
     `gatsby-plugin-netlify-cms`
   ]
 };
