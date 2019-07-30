@@ -10,9 +10,17 @@ export default props => {
     return (
       <div style={{ marginTop: '40px' }}>
         <LiveProvider code={children} scope={scope} noInline={noInline} theme={vsDarkTheme}>
-          <LivePreview />
-          <LiveEditor />
-          <LiveError />
+          <div style={{ display: 'flex' }}>
+            <div style={{ flexGrow: 1, background: '#333', color: 'white', marginRight: 20 }}>
+              <LiveEditor />
+            </div>
+            <div style={{ flexBasis: 200 }}>
+              <LivePreview />
+            </div>
+          </div>
+          <div style={{ fontSize: 10, color: 'red' }}>
+            <LiveError />
+          </div>
         </LiveProvider>
       </div>
     );
