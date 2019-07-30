@@ -7,7 +7,7 @@ export default props => {
   const language = className.replace(/language-/, '');
   if (live) {
     return (
-      <div style={{ marginTop: '40px' }}>
+      <div style={{ margin: '40px 0' }}>
         <LiveProvider code={children} scope={scope} noInline={noInline}>
           <div style={{display: 'flex'}}>
             <div style={{flexGrow: 1, background: '#333', color: 'white',  marginRight: 20}} >

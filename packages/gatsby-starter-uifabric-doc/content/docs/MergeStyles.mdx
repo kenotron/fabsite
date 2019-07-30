@@ -11,18 +11,37 @@ overview: |-
 import { mergeStyles, mergeStyleSets } from 'office-ui-fabric-react';
 
 
+### MergeStyles
+
+MergeStyles returns a className (like `css-0`) which can be used anywhere.  
+
 ```js live noInline
 const className = mergeStyles({ 
-  background: 'red'
+  backgroundColor: 'red',
+  color: 'white'
  });
 
-// Render with the generated class name
-render(<div className={className}>hi</div>);
+render(
+  <div className={className}>hi</div>
+);
 ```
 
-```js live noInline
+### MergeStyleSets
 
-let {root, title, button} = mergeStyleSets({
+Often you want to return a set of styles. This is where you'd use `mergeStyleSets` which will return:
+
+```js
+{
+  root: 'root-0',
+  title: 'title-0',
+  button: 'button-0'
+}
+```
+
+Apply these classNames to your components and the styles will be applied.
+
+```js live noInline
+let classNames = mergeStyleSets({
   root: { background: 'red'},
   title: { backgroundColor: 'green'},
   button: { 
@@ -38,11 +57,11 @@ let {root, title, button} = mergeStyleSets({
 
 
 render (
-  <div className={root}>
-    <h1 className={title}>
+  <div className={classNames.root}>
+    <h1 className={classNames.title}>
       Hello World
     </h1>
-    <button className={button}>Click Me</button>
+    <button className={classNames.button}>Click Me</button>
   </div>
 );
 ```
