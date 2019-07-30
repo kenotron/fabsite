@@ -1,5 +1,5 @@
 ---
-date: 2019-07-05T15:03:50.665Z
+path: /test-post
 title: Test Post
 ---
 This is a test post
