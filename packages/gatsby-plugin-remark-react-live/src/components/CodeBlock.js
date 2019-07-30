@@ -1,5 +1,6 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import vsDarkTheme from 'prism-react-renderer/themes/vsDark';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 export default props => {
   const { children, className, live, scope, noInline } = props;
@@ -8,16 +9,18 @@ export default props => {
   if (live) {
     return (
       <div style={{ margin: '40px 0' }}>
-        <LiveProvider code={children} scope={scope} noInline={noInline}>
-          <div style={{display: 'flex'}}>
-            <div style={{flexGrow: 1, background: '#333', color: 'white',  marginRight: 20}} >
+        <LiveProvider code={children} scope={scope} noInline={noInline} theme={vsDarkTheme}>
+          <div style={{ display: 'flex' }}>
+            <div style={{ flexGrow: 1, background: '#333', color: 'white', marginRight: 20 }}>
               <LiveEditor />
             </div>
-            <div style={{flexBasis: 250}}>
+            <div style={{ flexBasis: 250 }}>
               <LivePreview />
             </div>
           </div>
-          <div style={{fontSize: 10, color: 'red'}}><LiveError /></div>
+          <div style={{ fontSize: 10, color: 'red' }}>
+            <LiveError />
+          </div>
         </LiveProvider>
       </div>
     );
