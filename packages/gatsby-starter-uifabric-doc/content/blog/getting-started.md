@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-path: /blog/getting-started
+path: /getting-started
 ---
 
 ## Overview

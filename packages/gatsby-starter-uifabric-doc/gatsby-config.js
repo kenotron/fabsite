@@ -5,16 +5,18 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-theme-live-doc`,
-      options: {}
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `content/blog`,
         name: 'blog'
       }
     },
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-theme-live-doc`,
+      options: {}
+    },
+
     `gatsby-plugin-netlify-cms`
   ]
 };
