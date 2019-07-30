@@ -17,14 +17,12 @@ overview: |-
     - Use a Checkbox when the user has to perform extra steps for changes to be effective. For example, if the user must click a "Submit", "Next", "Ok" button to apply changes, use a Checkbox.
 ---
 
-import { Toggle, Link, TooltipHost, Icon } from 'office-ui-fabric-react';
+import { Toggle, Link, TooltipHost, Icon, Text } from 'office-ui-fabric-react';
 
 ## Usage
 
-### Default Toggles
 
 ```js live=true
-<div>
   <Toggle
     defaultChecked={true}
     label="Enabled and checked"
@@ -33,32 +31,9 @@ import { Toggle, Link, TooltipHost, Icon } from 'office-ui-fabric-react';
     onFocus={() => console.log('onFocus called')}
     onBlur={() => console.log('onBlur called')}
   />
-  <Toggle
-    defaultChecked={false}
-    label="Enabled and unchecked"
-    onText="On"
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-  <Toggle
-    defaultChecked={true}
-    disabled={true}
-    label="Disabled and checked"
-    onText="On"
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-  <Toggle
-    defaultChecked={false}
-    disabled={true}
-    label="Disabled and unchecked"
-    onText="On"
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
+```
+
+```js live=true 
   <Toggle
     defaultChecked={true}
     label="With inline label"
@@ -68,12 +43,15 @@ import { Toggle, Link, TooltipHost, Icon } from 'office-ui-fabric-react';
     onFocus={() => console.log('onFocus called')}
     onBlur={() => console.log('onBlur called')}
   />
+```
+
+```js live=true  
   <Toggle
     defaultChecked={true}
     label={
       <div>
         <Link href="https://bing.com" target="_blank">
-          Learn More
+          With Link
         </Link>
         <TooltipHost content="JSX Element Label">
           <Icon iconName="Info" />
@@ -86,46 +64,5 @@ import { Toggle, Link, TooltipHost, Icon } from 'office-ui-fabric-react';
     onFocus={() => console.log('onFocus called')}
     onBlur={() => console.log('onBlur called')}
   />
-  <Toggle
-    defaultChecked={true}
-    disabled={true}
-    label="Disabled with inline label"
-    inlineLabel={true}
-    onText="On"
-    offText="Off"
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-  <Toggle
-    defaultChecked={true}
-    label="With inline label and without onText and offText"
-    inlineLabel={true}
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-  <Toggle
-    defaultChecked={true}
-    label={
-      <div>
-        <Link href="https://bing.com" target="_blank">
-          Learn More
-        </Link>
-        <TooltipHost content="JSX Element Label">
-          <Icon iconName="Info" />
-        </TooltipHost>
-      </div>
-    }
-    inlineLabel={true}
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-  <Toggle
-    defaultChecked={true}
-    disabled={true}
-    label="Disabled with inline label and without onText and offText"
-    inlineLabel={true}
-    onFocus={() => console.log('onFocus called')}
-    onBlur={() => console.log('onBlur called')}
-  />
-</div>
+  
 ```

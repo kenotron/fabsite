@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import {Text, Link, Stack,} from 'office-ui-fabric-react';
+import { graphql } from 'gatsby';
 
 interface IIndexProps {
   data: {
@@ -26,14 +27,9 @@ export default (props: IIndexProps) => {
   const { data } = props;
   const posts = data.allMdx.edges;
   return (
-    <div>
-      <h1>Welcome to {data.site.siteMetadata.title}</h1>
-      <ul>
-        <li>
-          <Link to={'/'}>Home</Link>
-        </li>
-      </ul>
-      <ul>
+    <Stack maxWidth={600} style={{margin: 'auto'}}>
+      <Text as="h1" variant="xxLargePlus">Welcome to {data.site.siteMetadata.title}</Text>
+      <ul style={{padding: '0'}}>
         {posts.map((post, i) => {
           const {
             node: {
@@ -42,16 +38,16 @@ export default (props: IIndexProps) => {
             }
           } = post;
           return (
-            <li key={i}>
+            <li style={{listStyle: 'none'}} key={i}>
               <h3>
-                <Link to={path}>{title}</Link>
+                <Link href={path}>{title}</Link>
               </h3>
-              <p> {excerpt} </p>
+              <Text> {excerpt} </Text>
             </li>
           );
         })}
       </ul>
-    </div>
+    </Stack>
   );
 };
 
