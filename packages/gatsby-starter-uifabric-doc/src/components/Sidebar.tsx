@@ -8,19 +8,21 @@ function aggregateCategory(nodes) {
   nodes.forEach(node => {
     const { category } = node.frontmatter;
 
-    categories[category] = categories[category] || {
-      name: category,
-      links: [],
-      isExpanded: true
-    };
+    if (!categories[category]) {
+      categories[category] = {
+        name: category,
+        links: [],
+        isExpanded: true
+      };
+
+      aggregate.links.push(categories[category]);
+    }
 
     categories[category].links.push({
       name: node.frontmatter.title,
       url: node.frontmatter.path,
       key: node.fields.slug
     });
-
-    aggregate.links.push(categories[category]);
   });
 
   return aggregate;
