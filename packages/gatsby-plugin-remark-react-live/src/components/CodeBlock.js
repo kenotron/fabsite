@@ -13,7 +13,7 @@ export default props => {
             <div style={{flexGrow: 1, background: '#333', color: 'white',  marginRight: 20}} >
               <LiveEditor />
             </div>
-            <div style={{flexBasis: 200}}>
+            <div style={{flexBasis: 250}}>
               <LivePreview />
             </div>
           </div>

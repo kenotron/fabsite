@@ -1,0 +1,48 @@
+---
+path: /components/MergeStyles
+title: MergeStyles
+
+overview: |-
+  The `merge-styles` library provides utilities for loading styles through javascript. It is designed to make it simple to style components through javascript. It generates css classes, rather than using inline styling, to ensure we can use css features like pseudo selectors (:hover) and parent/child selectors (media queries).
+
+  The library was built for speed and size; the entire package is 2.62k gzipped. It has no dependencies other than `tslib`.
+---
+
+import { mergeStyles, mergeStyleSets } from 'office-ui-fabric-react';
+
+
+```js live noInline
+const className = mergeStyles({ 
+  background: 'red'
+ });
+
+// Render with the generated class name
+render(<div className={className}>hi</div>);
+```
+
+```js live noInline
+
+let {root, title, button} = mergeStyleSets({
+  root: { background: 'red'},
+  title: { backgroundColor: 'green'},
+  button: { 
+    border: 'none', 
+    margin: 10,
+    selectors: {
+      "&:hover":{
+        background: 'purple'
+      }
+    }
+  }
+})
+
+
+render (
+  <div className={root}>
+    <h1 className={title}>
+      Hello World
+    </h1>
+    <button className={button}>Click Me</button>
+  </div>
+);
+```
