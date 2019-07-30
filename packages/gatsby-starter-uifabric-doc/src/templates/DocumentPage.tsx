@@ -36,7 +36,7 @@ const DocumentPage = (props: any) => {
 const Main = (props: any) => {
   const { doc } = props;
   return (
-    <Stack maxWidth={800} style={{ margin: '0 auto 40px', gridArea: 'main' }}>
+    <Stack maxWidth={800} style={{ margin: '0 auto 40px', width: '100%', gridArea: 'main' }}>
       <Text as="h1" variant="xxLargePlus">
         {doc.frontmatter.title}
       </Text>
