@@ -3,36 +3,35 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 import md2jsx from '../md2jsx';
+import {Stack, Text, initializeIcons} from 'office-ui-fabric-react';
 
+initializeIcons();
 const components = {
   pre: props => <div {...props} />
 };
 
 const DocumentPage = (props: any) => {
   const doc = props.data.mdx;
-  console.log(doc);
   return (
     <MDXProvider components={components}>
-      <div className="blog-post-container">
-        <div className="blog-post">
-          <h1>{doc.frontmatter.title}</h1>
-          <h2>Overview</h2>
-          {md2jsx(doc.frontmatter.overview)}
-          <div style={{ display: 'flex' }}>
-            <div>
-              <h2>Do's</h2>
-              {md2jsx(doc.frontmatter.dos)}
+       <Stack maxWidth={800} style={{margin: '0 auto 40px'}}>
+       <Text as="h1" variant="xxLargePlus">{doc.frontmatter.title}</Text>
+          <Text as="h2" variant="xxLarge">Overview</Text>
+          <Text>{md2jsx(doc.frontmatter.overview)}</Text>
+          <Stack horizontal gap={20} >
+            <div style={{flexBasis:'0', flexGrow: 1}}>
+              <Text as="h3" variant="xLarge">Do's</Text>
+              <Text>{md2jsx(doc.frontmatter.dos)}</Text>
             </div>
 
-            <div>
-              <h2>Dont's</h2>
-              {md2jsx(doc.frontmatter.donts)}
+            <div style={{flexBasis:'0', flexGrow: 1}}>
+              <Text as="h3" variant="xLarge">Dont's</Text>
+              <Text>{md2jsx(doc.frontmatter.donts)}</Text>
             </div>
-          </div>
+          </Stack>
 
-          <MDXRenderer>{doc.body}</MDXRenderer>
-        </div>
-      </div>
+         <Text><MDXRenderer>{doc.body}</MDXRenderer></Text> 
+      </Stack>
     </MDXProvider>
   );
 };
