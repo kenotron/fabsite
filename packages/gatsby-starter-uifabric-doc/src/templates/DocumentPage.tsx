@@ -18,7 +18,7 @@ const DocumentPage = (props: any) => {
        <Text as="h1" variant="xxLargePlus">{doc.frontmatter.title}</Text>
           <Text as="h2" variant="xxLarge">Overview</Text>
           <Text>{md2jsx(doc.frontmatter.overview)}</Text>
-          {doc.frontmatter.dos || doc.frontmatter.donts &&
+          {(doc.frontmatter.dos || doc.frontmatter.donts) &&
             <Stack horizontal gap={20} >
               <div style={{flexBasis:'0', flexGrow: 1}}>
                 <Text as="h3" variant="xLarge">Do's</Text>
