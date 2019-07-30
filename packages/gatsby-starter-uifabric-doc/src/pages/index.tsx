@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, Link, Stack,} from 'office-ui-fabric-react';
 import { graphql } from 'gatsby';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar'; 
 
 interface IIndexProps {
   data: {
@@ -23,31 +25,27 @@ interface IIndexProps {
   };
 }
 
+const pageGridStyles = {
+  gridTemplateAreas: '"head head" "sidebar main"',
+  gridTemplateRows: '50px 1fr',
+  gridTemplateColumns: '300px 1fr',
+  display: 'grid'
+};
+
+
+
+
 export default (props: IIndexProps) => {
   const { data } = props;
   const posts = data.allMdx.edges;
   return (
-    <Stack maxWidth={600} style={{margin: 'auto'}}>
+    <div style={pageGridStyles}>
+        <Header />
+        <Sidebar />     
+    <Stack>
       <Text as="h1" variant="xxLargePlus">Welcome to {data.site.siteMetadata.title}</Text>
-      <ul style={{padding: '0'}}>
-        {posts.map((post, i) => {
-          const {
-            node: {
-              frontmatter: { title, path },
-              excerpt
-            }
-          } = post;
-          return (
-            <li style={{listStyle: 'none'}} key={i}>
-              <h3>
-                <Link href={path}>{title}</Link>
-              </h3>
-              <Text> {excerpt} </Text>
-            </li>
-          );
-        })}
-      </ul>
     </Stack>
+    </div>
   );
 };
 
