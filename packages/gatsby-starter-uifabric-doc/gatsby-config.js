@@ -17,7 +17,17 @@ module.exports = {
       options: {}
     },
     `gatsby-plugin-netlify-cms`,
-    'gatsby-plugin-manifest',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Fabric Website 2.0`,
+        short_name: `fabricwebsite`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`
+      }
+    },
     'gatsby-plugin-offline'
   ]
 };
