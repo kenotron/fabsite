@@ -17,6 +17,7 @@ module.exports = {
       options: {}
     },
     `gatsby-plugin-netlify-cms`,
+    'gatsby-plugin-manifest',
     'gatsby-plugin-offline'
   ]
 };

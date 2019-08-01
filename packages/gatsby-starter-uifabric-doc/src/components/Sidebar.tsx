@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
-import { Link as FabricLink, Text } from 'office-ui-fabric-react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Text } from 'office-ui-fabric-react';
 
 import './Sidebar.css';
-import { prototype } from 'configstore';
+
+import Link from './Link';
 
 function aggregateCategory(nodes) {
   const aggregate: { links: any[] } = { links: [] };
@@ -32,23 +33,10 @@ function aggregateCategory(nodes) {
   return aggregate;
 }
 
-const FastLink = (props: React.LinkHTMLAttributes<any>) => {
-  const { href, ...rest } = props;
-  return (
-    <GatsbyLink to={href!} {...rest}>
-      {props.children}
-    </GatsbyLink>
-  );
-};
-
 const NavItem = (props: any) => {
   return (
     <li>
-      {props.url && (
-        <FabricLink as={FastLink} href={props.url}>
-          {props.name}
-        </FabricLink>
-      )}
+      {props.url && <Link href={props.url}>{props.name}</Link>}
       {!props.url && <Text variant="large">{props.name}</Text>}
       {props.links && (
         <ul>

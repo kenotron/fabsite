@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Text, Link } from 'office-ui-fabric-react';
+import { Text } from 'office-ui-fabric-react';
+import Link from './Link';
 import { useStaticQuery, graphql } from 'gatsby';
 
 export default (props: any) => {
