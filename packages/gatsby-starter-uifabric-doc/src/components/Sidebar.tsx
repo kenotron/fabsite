@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Nav } from 'office-ui-fabric-react';
+import { Link, Text } from 'office-ui-fabric-react';
+
+import './Sidebar.css';
 
 function aggregateCategory(nodes) {
   const aggregate: { links: any[] } = { links: [] };
@@ -11,8 +13,7 @@ function aggregateCategory(nodes) {
     if (!categories[category]) {
       categories[category] = {
         name: category,
-        links: [],
-        isExpanded: true
+        links: []
       };
 
       aggregate.links.push(categories[category]);
@@ -25,8 +26,34 @@ function aggregateCategory(nodes) {
     });
   });
 
+  aggregate.links = aggregate.links.sort();
+
   return aggregate;
 }
+
+const NavItem = (props: any) => {
+  return (
+    <li>
+      {props.url && <Link href={props.url}>{props.name}</Link>}
+      {!props.url && <Text variant="large">{props.name}</Text>}
+      {props.links && (
+        <ul>
+          {props.links.map(link => (
+            <NavItem {...link} />
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+};
+
+const Nav = (props: any) => {
+  return (
+    <nav>
+      <ul>{props.groups.map(group => group.links.map(link => <NavItem {...link} />))}</ul>
+    </nav>
+  );
+};
 
 export default (props: any) => {
   const data = useStaticQuery(graphql`
@@ -74,16 +101,7 @@ export default (props: any) => {
 
   return (
     <div style={{ gridArea: 'sidebar' }}>
-      <Nav
-        selectedKey="key3"
-        expandButtonAriaLabel="Expand or collapse"
-        styles={{
-          root: {
-            width: '300px'
-          }
-        }}
-        groups={[groups]}
-      />
+      <Nav groups={[groups]} />
     </div>
   );
 };
