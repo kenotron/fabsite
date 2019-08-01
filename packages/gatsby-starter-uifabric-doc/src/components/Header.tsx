@@ -21,7 +21,6 @@ export default (props: any) => {
         <meta charSet="utf-8" />
         <meta name="Description" content={data.site.siteMetadata.description} />
         <title>{data.site.siteMetadata.title}</title>
-        <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <Text as="h1" variant="xLarge">
         UI Fabric
