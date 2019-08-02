@@ -1,10 +1,11 @@
 ---
-date: 2019-08-07T23:02:41.099Z
+date: 2019-08-02T20:20:29.623Z
 title: Getting Started
 ---
+
 ## Overview
 
-Fabric React compasdfasdfasdaonents are built as production-ready, generalized, documented, and reusable components to be used in Microsoft products. This enables us and our partners to more easily build great applications without spending a ton of time implementing the same things over and over.
+Fabric React components are built as production-ready, generalized, documented, and reusable components to be used in Microsoft products. This enables us and our partners to more easily build great applications without spending a ton of time implementing the same things over and over.
 
 Each component is designed to be RTL-friendly, keyboard accessible, screen reader-friendly, themeable, and generalized. TypeScript definition files are also included, so if you use TypeScript (which isn't a requirement), you will get compiler validation and using an editor like VS Code, you'll get intellisense. Each component is exported as a named module that can be easily imported in your code, allowing your external bundler to create small bundles that include just what you need.
 
