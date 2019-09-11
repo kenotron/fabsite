@@ -11,7 +11,11 @@ export const sourceNodes = ({ actions, createNodeId, createContentDigest }: Sour
 
   const oufrComponentsPath = path.join(path.dirname(require.resolve('office-ui-fabric-react/package.json')), 'lib-commonjs/components');
 
+  console.log('globbing');
+
   const componentDocPaths = glob.sync(oufrComponentsPath + '/**/*.doc.js');
+
+  console.log('extracting info');
 
   for (let componentDocPath of componentDocPaths) {
     let componentDocProps = null;
@@ -29,10 +33,15 @@ export const sourceNodes = ({ actions, createNodeId, createContentDigest }: Sour
     const componentDoc = componentDocProps[Object.keys(componentDocProps)[0]];
 
     if (componentDoc.componentName) {
+      console.log(`Extracting documentation for ${componentDoc.componentName}`);
       try {
         for (let prop of Object.keys(componentDoc)) {
           if (typeof componentDoc[prop] === 'object') {
-            delete componentDoc[prop];
+            if (componentDoc[prop].default) {
+              componentDoc[prop] = componentDoc[prop].default;
+            } else {
+              delete componentDoc[prop];
+            }
           }
         }
 
