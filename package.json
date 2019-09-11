@@ -11,8 +11,8 @@
     "beachball": "^1.11.0"
   },
   "scripts": {
-    "start": "yarn workspace gatsby-starter-uifabric-doc start",
-    "build": "yarn workspace gatsby-starter-uifabric-doc build",
+    "start": "yarn workspace fabric-website start",
+    "build": "yarn workspace fabric-website build",
     "change": "beachball change",
     "checkchange": "beachball check --changehint \"Run yarn change to create change file\"",
     "pub": "beachball publish"

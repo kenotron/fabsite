@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: kenotron/fabsite
+  branch: master
+
+publish_mode: editorial_workflow
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: blog
+    label: Blog Posts
+    folder: packages\gatsby-starter-uifabric-doc\content\blog
+    create: true
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
