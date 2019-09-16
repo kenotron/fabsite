@@ -21,6 +21,13 @@ interface IIndexProps {
         };
       }[];
     };
+    allStrapiComponent: {
+      edges: {
+        node: {
+          title: string;
+        };
+      };
+    };
   };
 }
 

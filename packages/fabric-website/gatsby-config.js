@@ -11,12 +11,25 @@ module.exports = {
         name: 'blog'
       }
     },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `https://fabric-strapi.azurewebsites.net/`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`component`],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: '',
+          password: ''
+        }
+      }
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-theme-live-doc`,
       options: {}
     },
-    `gatsby-plugin-netlify-cms`,
+    // `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -28,7 +41,6 @@ module.exports = {
         display: `standalone`
       }
     },
-    'gatsby-plugin-offline',
-    'gatsby-source-uifabric'
+    'gatsby-plugin-offline'
   ]
 };

@@ -81,12 +81,19 @@ export default (props: any) => {
           }
         }
       }
+
+      allStrapiComponent {
+        nodes {
+          title
+        }
+      }
     }
   `);
 
   const {
     allMdx: { nodes },
-    allMarkdownRemark: { nodes: blogNodes }
+    allMarkdownRemark: { nodes: blogNodes },
+    allStrapiComponent: { nodes: strapiNodes }
   } = data;
 
   const groups = aggregateCategory(nodes);
@@ -99,6 +106,15 @@ export default (props: any) => {
       key: blog.frontmatter.title
     })),
     isExpanded: true
+  });
+
+  groups.links.push({
+    name: 'Strapi Components',
+    links: strapiNodes.map(node => ({
+      name: node.title,
+      url: node.title.toLowerCase(),
+      key: 'strapi_' + node.title
+    }))
   });
 
   return (
