@@ -11,7 +11,7 @@ public_folder: assets
 collections:
   - name: blog
     label: Blog Posts
-    folder: packages\gatsby-starter-uifabric-doc\content\blog
+    folder: packages\fabric-website\content\blog
     create: true
     fields:
       - { name: date, label: Date, widget: date }
