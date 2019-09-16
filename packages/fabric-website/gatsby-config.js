@@ -29,7 +29,7 @@ module.exports = {
       resolve: `gatsby-theme-live-doc`,
       options: {}
     },
-    // `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
