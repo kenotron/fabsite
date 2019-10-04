@@ -28,8 +28,6 @@
     "gatsby": "^2.13.41",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-offline": "^2.2.4",
-    "gatsby-source-strapi": "^0.0.9",
-    "gatsby-source-uifabric": "*",
     "gatsby-theme-live-doc": "0.1.1",
     "gatsby-transformer-remark": "^2.6.10",
     "office-ui-fabric-react": "^7.14.1",

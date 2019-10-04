@@ -9,9 +9,9 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog Posts
-    folder: packages/fabric-website/content/blog
+  - name: components
+    label: Components
+    folder: packages/fabric-website/content/components
     create: true
     fields:
       - { name: date, label: Date, widget: date }
