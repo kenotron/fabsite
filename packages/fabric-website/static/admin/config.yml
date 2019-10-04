@@ -10,6 +10,8 @@ public_folder: assets
 
 collections:
   - name: components
+    extension: "mdx"
+    format: "frontmatter"
     label: Components
     folder: packages/fabric-website/content/components
     create: true
