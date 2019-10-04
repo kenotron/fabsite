@@ -25,11 +25,10 @@ steps:
   - script: yarn build
     displayName: Build
 
-  - task: AzureFileCopy@3
-    displayName: 'AzureBlob File Copy'
+  - task: AzureUpload@1
+    displayName: 'Upload to Azure'
     inputs:
-      SourcePath: packages/fabric-website/public
+      SourcePath: 'packages/fabric-website/public'
       azureSubscription: 'UI Fabric (bac044cf-49e1-4843-8dda-1ce9662606c8)'
-      Destination: AzureBlob
       storage: fabsite
       ContainerName: '$web'
