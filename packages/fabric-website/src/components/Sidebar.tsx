@@ -12,7 +12,7 @@ const NavItem = (props: any) => {
 
 const Nav = (props: any) => {
   return (
-    <nav>
+    <nav className="sitenav">
       <ul>
         {props.items.map(node => (
           <NavItem {...node.frontmatter} />

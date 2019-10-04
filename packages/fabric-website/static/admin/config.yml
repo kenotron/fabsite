@@ -14,6 +14,7 @@ collections:
     folder: packages/fabric-website/content/components
     create: true
     fields:
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - { name: image, label: Image, widget: image }
+      - { name: implementation, label: Implementation, widget: markdown }

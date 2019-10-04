@@ -1,8 +1,8 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Text } from 'office-ui-fabric-react';
-import Link from './Link';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Text } from "office-ui-fabric-react";
+import Link from "./Link";
+import { useStaticQuery, graphql } from "gatsby";
 
 export default (props: any) => {
   const data = useStaticQuery(graphql`
@@ -17,7 +17,17 @@ export default (props: any) => {
   `);
 
   return (
-    <div style={{ padding: 20, margin: 0, gridArea: 'head', display: 'flex', justifyContent: 'start', alignItems: 'baseline' }}>
+    <div
+      style={{
+        background: "white",
+        padding: 20,
+        margin: 0,
+        gridArea: "head",
+        display: "flex",
+        justifyContent: "start",
+        alignItems: "baseline"
+      }}
+    >
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="Description" content={data.site.siteMetadata.description} />
@@ -30,7 +40,6 @@ export default (props: any) => {
         <Link style={{ marginRight: 15 }} href="/">
           Home
         </Link>
-        <Link href="/getting-started">Get Started</Link>
       </div>
     </div>
   );

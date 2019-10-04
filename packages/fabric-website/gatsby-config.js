@@ -28,6 +28,14 @@ module.exports = {
         display: `standalone`
       }
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/DefaultLayout.tsx")
+        }
+      }
+    },
     "gatsby-plugin-offline"
   ]
 };

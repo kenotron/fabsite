@@ -4,10 +4,10 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import { Stack, Text, initializeIcons } from "office-ui-fabric-react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import DefaultLayout from "../components/DefaultLayout";
 
 initializeIcons();
+
 const components = {
   pre: props => <div {...props} />
 };
@@ -20,37 +20,24 @@ const pageGridStyles = {
   display: "grid"
 };
 
-const DocumentPage = (props: any) => {
+export default props => {
+  const {
+    data: { mdx }
+  } = props;
   return (
-    <MDXProvider components={components}>
-      <div style={pageGridStyles}>
-        <Header />
-        <Sidebar />
-        <Main doc={props.data.mdx} />
-      </div>
-    </MDXProvider>
+    <DefaultLayout>
+      <Stack style={{ gridArea: "main" }}>
+        <Text as="h1" variant="xxLargePlus">
+          {mdx.frontmatter.title}
+        </Text>
+
+        <Text>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </Text>
+      </Stack>
+    </DefaultLayout>
   );
 };
-
-const Main = (props: any) => {
-  const { doc } = props;
-  return (
-    <Stack
-      maxWidth={800}
-      style={{ margin: "0 auto 40px", width: "100%", gridArea: "main" }}
-    >
-      <Text as="h1" variant="xxLargePlus">
-        {doc.frontmatter.title}
-      </Text>
-
-      <Text>
-        <MDXRenderer>{doc.body}</MDXRenderer>
-      </Text>
-    </Stack>
-  );
-};
-
-export default DocumentPage;
 
 export const pageQuery = graphql`
   query ComponentDocumentPagePathBySlug($slug: String!) {

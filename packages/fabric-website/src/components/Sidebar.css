@@ -1,3 +1,8 @@
+.sitenav {
+  background: white;
+  height: 100%;
+  padding: 16px;
+}
 nav ul li {
   list-style: none;
 }
