@@ -4,6 +4,16 @@ module.exports = {
     description: "UI Fabric is the World Famous Fluent Component Library"
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-theme-live-doc`,
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-images`]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -11,12 +21,6 @@ module.exports = {
         name: "components"
       }
     },
-    `gatsby-transformer-remark`,
-    {
-      resolve: `gatsby-theme-live-doc`,
-      options: {}
-    },
-    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -33,9 +37,22 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve("./src/components/DefaultLayout.tsx")
-        }
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 400,
+              withWebp: true,
+              tracedSVG: true,
+              linkImagesToOriginal: false
+            }
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`
+          }
+        ]
       }
-    },
-    "gatsby-plugin-offline"
+    }
   ]
 };

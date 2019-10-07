@@ -17,6 +17,34 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
-      - { name: image, label: Image, widget: image }
-      - { name: implementation, label: Implementation, widget: markdown }
+      - { name: title, label: Title }
+      - { name: body, label: Overview, widget: markdown }
+      - {
+          name: dos,
+          label: Dos,
+          widget: list,
+          field: { label: Do, name: do, widget: string },
+        }
+      - {
+          name: donts,
+          label: Donts,
+          widget: list,
+          field: { label: Dont, name: dont, widget: string },
+        }
+      - name: implementation
+        label: Implementation
+        widget: list
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Image, name: image, widget: image }
+  - label: Pages
+    name: pages
+    extension: "mdx"
+    format: "frontmatter"
+    files:
+      - label: "Get Started"
+        name: "started"
+        file: "packages/fabric-website/src/index.mdx"
+        fields:
+          - { name: title, label: Title }
+          - { name: body, label: Body, widget: markdown }
