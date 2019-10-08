@@ -60,4 +60,5 @@ collections:
         format: "frontmatter"
         file: "packages/fabric-website/src/pages/test.mdx"
         fields:
-          - { name: body, label: Body, widget: markdown }
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown }
