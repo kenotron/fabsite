@@ -42,4 +42,5 @@ collections:
     format: "frontmatter"
     folder: packages/fabric-website/src/pages
     fields:
+      - { name: title, label: Title }
       - { name: body, label: Overview, widget: markdown }
