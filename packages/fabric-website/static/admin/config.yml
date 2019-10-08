@@ -17,7 +17,6 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: title, label: Title }
       - { name: body, label: Overview, widget: markdown }
       - {
           name: dos,
@@ -39,24 +38,8 @@ collections:
           - { label: Image, name: image, widget: image }
   - label: "Pages"
     name: "pages"
-    files:
-      - label: "Get Started"
-        name: "started"
-        extension: "mdx"
-        format: "frontmatter"
-        file: "packages/fabric-website/src/pages/index.mdx"
-        fields:
-          - { name: body, label: Body, widget: markdown }
-      - label: "Resources"
-        name: "resources"
-        extension: "mdx"
-        format: "frontmatter"
-        file: "packages/fabric-website/src/pages/resources.mdx"
-        fields:
-          - { name: body, label: Body, widget: markdown }
-      - label: "Test"
-        name: "test"
-        file: "packages/fabric-website/src/pages/test.mdx"
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
+    extension: "mdx"
+    format: "frontmatter"
+    folder: packages/fabric-website/src/pages
+    fields:
+      - { name: body, label: Overview, widget: markdown }
