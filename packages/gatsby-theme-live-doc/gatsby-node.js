@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const docPage = path.resolve("src/templates/DocumentPage.tsx");
+  const docPage = path.resolve("src/templates/ComponentTemplate.tsx");
   const result = await graphql(`
     {
       allMdx(filter: { frontmatter: { path: { ne: null } } }) {

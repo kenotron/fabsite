@@ -18,17 +18,16 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: body, label: Overview, widget: fabricmarkdown }
+  - label: "Pages"
+    name: "pages"
+    extension: "mdx"
+    format: "yaml"
+    folder: packages/fabric-website/src/pages
+    fields:
+      - { name: title, label: Title }
       - label: Content
         name: content
         widget: list
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Copy, name: copy, widget: fabricmarkdown }
-  - label: "Pages"
-    name: "pages"
-    extension: "mdx"
-    format: "frontmatter"
-    folder: packages/fabric-website/src/pages
-    fields:
-      - { name: title, label: Title }
-      - { name: body, label: Overview, widget: fabricmarkdown }

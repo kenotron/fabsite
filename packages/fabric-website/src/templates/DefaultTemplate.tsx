@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Link, Stack, FontWeights } from "office-ui-fabric-react";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 import { MDXProvider } from "@mdx-js/react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import darkTheme from "prism-react-renderer/themes/nightOwl";

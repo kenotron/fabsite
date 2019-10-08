@@ -12,7 +12,7 @@ import {
   Image
 } from "office-ui-fabric-react";
 import { Card } from "../components/Card";
-import DefaultLayout from "../components/DefaultLayout";
+import Page from "./DefaultTemplate";
 import { StackItem } from "office-ui-fabric-react";
 
 initializeIcons();
@@ -43,7 +43,7 @@ export default props => {
     data: { mdx }
   } = props;
   return (
-    <DefaultLayout>
+    <Page>
       <Stack style={{ gridArea: "main" }} tokens={{ childrenGap: 16 }}>
         <Text as="h1" variant="xxLargePlus">
           {mdx.frontmatter.title}
@@ -91,7 +91,7 @@ export default props => {
           />
         </Card>
       </Stack>
-    </DefaultLayout>
+    </Page>
   );
 };
 
