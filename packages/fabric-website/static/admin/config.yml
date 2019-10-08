@@ -54,3 +54,10 @@ collections:
         file: "packages/fabric-website/src/pages/resources.mdx"
         fields:
           - { name: body, label: Body, widget: markdown }
+      - label: "Test"
+        name: "test"
+        extension: "mdx"
+        format: "frontmatter"
+        file: "packages/fabric-website/src/pages/test.mdx"
+        fields:
+          - { name: body, label: Body, widget: markdown }
