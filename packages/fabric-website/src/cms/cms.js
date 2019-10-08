@@ -3,11 +3,10 @@
  * extension registration methods, such as `registerWidget` and
  * `registerPreviewTemplate`.
  */
-import CMS from "netlify-cms-app";
-
-import ImageGalleryWidget from "./image-gallery-widget.js";
+import CMS from 'netlify-cms-app';
+import NetlifyCmsWidgetMarkdown from './netlify-cms-widget-markdown';
 
 /**
  * Register the imported widget:
  */
-CMS.registerWidget();
+CMS.registerWidget('fabric-markdown', NetlifyCmsWidgetMarkdown.controlComponent, NetlifyCmsWidgetMarkdown.previewComponent);

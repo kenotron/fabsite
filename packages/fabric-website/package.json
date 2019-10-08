@@ -25,6 +25,7 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
+    "@uifabric/netlify-cms-widget-markdown": "2.5.1",
     "@uifabric/react-cards": "^0.108.2",
     "gatsby": "^2.13.41",
     "gatsby-image": "^2.2.24",
