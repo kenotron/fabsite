@@ -18,24 +18,12 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: body, label: Overview, widget: markdown }
-      - {
-          name: dos,
-          label: Dos,
-          widget: list,
-          field: { label: Do, name: do, widget: string },
-        }
-      - {
-          name: donts,
-          label: Donts,
-          widget: list,
-          field: { label: Dont, name: dont, widget: string },
-        }
-      - name: implementation
-        label: Implementation
+      - label: Content
+        name: content
         widget: list
         fields:
           - { label: Name, name: name, widget: string }
-          - { label: Image, name: image, widget: image }
+          - { label: Copy, name: copy, widget: markdown }
   - label: "Pages"
     name: "pages"
     extension: "mdx"
