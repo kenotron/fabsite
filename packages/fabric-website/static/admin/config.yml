@@ -10,25 +10,25 @@ public_folder: assets
 
 collections:
   - name: components
-    extension: 'mdx'
-    format: 'frontmatter'
+    extension: "mdx"
+    format: "frontmatter"
     label: Components
     folder: packages/fabric-website/content/components
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: body, label: Overview, widget: fabric-markdown }
+      - { name: body, label: Overview, widget: fabricmarkdown }
       - label: Content
         name: content
         widget: list
         fields:
           - { label: Name, name: name, widget: string }
-          - { label: Copy, name: copy, widget: fabric-markdown }
-  - label: 'Pages'
-    name: 'pages'
-    extension: 'mdx'
-    format: 'frontmatter'
+          - { label: Copy, name: copy, widget: fabricmarkdown }
+  - label: "Pages"
+    name: "pages"
+    extension: "mdx"
+    format: "frontmatter"
     folder: packages/fabric-website/src/pages
     fields:
       - { name: title, label: Title }
-      - { name: body, label: Overview, widget: fabric-markdown }
+      - { name: body, label: Overview, widget: fabricmarkdown }
