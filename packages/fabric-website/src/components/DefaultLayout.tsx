@@ -59,7 +59,7 @@ const pageGridStyles = {
   gridTemplateColumns: "300px 1fr",
   display: "grid",
   width: "100vw",
-  height: "100vh"
+  minHeight: "100vh"
 };
 
 export default props => {

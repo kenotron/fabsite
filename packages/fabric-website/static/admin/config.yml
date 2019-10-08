@@ -37,14 +37,20 @@ collections:
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Image, name: image, widget: image }
-  - label: Pages
-    name: pages
-    extension: "mdx"
-    format: "frontmatter"
+  - label: "Pages"
+    name: "pages"
     files:
       - label: "Get Started"
         name: "started"
-        file: "packages/fabric-website/src/index.mdx"
+        extension: "mdx"
+        format: "frontmatter"
+        file: "packages/fabric-website/src/pages/index.mdx"
         fields:
-          - { name: title, label: Title }
+          - { name: body, label: Body, widget: markdown }
+      - label: "Resources"
+        name: "resources"
+        extension: "mdx"
+        format: "frontmatter"
+        file: "packages/fabric-website/src/pages/resources.mdx"
+        fields:
           - { name: body, label: Body, widget: markdown }

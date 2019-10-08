@@ -40,6 +40,9 @@ export default (props: any) => {
         <Link style={{ marginRight: 15 }} href="/">
           Home
         </Link>
+        <Link style={{ marginRight: 15 }} href="/resources">
+          Resources
+        </Link>
       </div>
     </div>
   );
