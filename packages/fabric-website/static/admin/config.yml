@@ -56,7 +56,9 @@ collections:
           - { name: body, label: Body, widget: markdown }
       - label: "Test"
         name: "test"
-        file: "packages/fabric-website/src/pages/test.md"
+        extension: "mdx"
+        format: "frontmatter"
+        file: "packages/fabric-website/src/pages/test.mdx"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
