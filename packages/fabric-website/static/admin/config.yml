@@ -17,6 +17,7 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
+      - { name: path, label: Path }
       - { name: overview, label: overview, widget: fabricmarkdown }
       - { name: layout, label: layout, widget: fabricmarkdown }
       - { name: content, label: content, widget: fabricmarkdown }
