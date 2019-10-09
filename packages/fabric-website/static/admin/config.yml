@@ -17,11 +17,16 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: body, label: Overview, widget: fabricmarkdown }
+      - { name: overview, label: overview, widget: fabricmarkdown }
+      - { name: layout, label: layout, widget: fabricmarkdown }
+      - { name: content, label: content, widget: fabricmarkdown }
+      - { name: accessibility, label: accessibility, widget: fabricmarkdown }
+      - { name: globalization, label: globalization, widget: fabricmarkdown }
+      - { name: behavior, label: behavior, widget: fabricmarkdown }
   - label: "Pages"
     name: "pages"
     extension: "mdx"
-    format: "yaml"
+    format: "frontmatter"
     folder: packages/fabric-website/src/pages
     fields:
       - { name: title, label: Title }
