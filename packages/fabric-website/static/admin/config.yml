@@ -44,10 +44,11 @@ collections:
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Copy, name: copy, widget: fabricmarkdown }
-  - label: People
-    name: people
-    folder: packages/fabric-website/content/people
+  - label: Dog
+    name: dog
+    create: true
+    folder: packages/fabric-website/content/dogs
     fields:
       - { name: name, lable: Name }
-      - { name: title, lable: Title }
-      - { name: color, lable: Favorite Color }
+      - { name: age, lable: Age }
+      - { name: photo, lable: Photo, widget: image }
