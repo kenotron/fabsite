@@ -10,23 +10,24 @@ public_folder: assets
 
 collections:
   - name: components
-    extension: "mdx"
-    format: "frontmatter"
+    extension: 'mdx'
+    format: 'frontmatter'
     label: Components
     folder: packages/fabric-website/content/components
     create: true
     fields:
       - { name: title, label: Title }
+      - { name: path, label: Path }
       - { name: overview, label: overview, widget: fabricmarkdown }
       - { name: layout, label: layout, widget: fabricmarkdown }
       - { name: content, label: content, widget: fabricmarkdown }
       - { name: accessibility, label: accessibility, widget: fabricmarkdown }
       - { name: globalization, label: globalization, widget: fabricmarkdown }
       - { name: behavior, label: behavior, widget: fabricmarkdown }
-  - label: "Pages"
-    name: "pages"
-    extension: "mdx"
-    format: "frontmatter"
+  - label: 'Pages'
+    name: 'pages'
+    extension: 'mdx'
+    format: 'frontmatter'
     folder: packages/fabric-website/src/pages
     fields:
       - { name: title, label: Title }
