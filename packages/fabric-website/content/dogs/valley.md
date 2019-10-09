@@ -1,6 +1,6 @@
 ---
 title: Valley
-breed: Vizsla
+breed: Viszla
 photo: /assets/img_20181011_171926.jpg
 ---
 
