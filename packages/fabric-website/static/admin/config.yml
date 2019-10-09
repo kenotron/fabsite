@@ -57,7 +57,7 @@ collections:
           fields:
             [
               { label: Name, name: name, widget: string },
-              { label: Copy, name: copy, widget: markdown },
+              { label: Text, name: text, widget: markdown },
             ],
         }
   - name: dog
