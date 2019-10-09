@@ -2,12 +2,9 @@ backend:
   name: github
   repo: kenotron/fabsite
   branch: master
-
 publish_mode: editorial_workflow
-
 media_folder: static/assets
 public_folder: assets
-
 collections:
   - name: components
     extension: mdx
@@ -18,18 +15,32 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: path, label: Path }
-      - { name: overview, label: overview, widget: fabricmarkdown }
-      - { name: layout, label: layout, widget: fabricmarkdown }
-      - { name: content, label: content, widget: fabricmarkdown }
-      - { name: accessibility, label: accessibility, widget: fabricmarkdown }
-      - { name: globalization, label: globalization, widget: fabricmarkdown }
-      - { name: behavior, label: behavior, widget: fabricmarkdown }
-      - name: examples
-        label: Examples
-        widget: list
-        fields:
-          - { name: title, label: Title }
-          - { name: image, label: Image, widget: image }
+      - { name: overview, label: overview, widget: markdown }
+      - { name: layout, label: layout, widget: markdown, required: false }
+      - { name: content, label: content, widget: markdown, required: false }
+      - {
+          name: accessibility,
+          label: accessibility,
+          widget: markdown,
+          required: false,
+        }
+      - {
+          name: globalization,
+          label: globalization,
+          widget: markdown,
+          required: false,
+        }
+      - { name: behavior, label: behavior, widget: markdown, required: false }
+      - {
+          name: examples,
+          label: Examples,
+          widget: list,
+          fields:
+            [
+              { name: title, label: Title },
+              { name: image, label: Image, widget: image },
+            ],
+        }
   - label: Pages
     name: pages
     extension: mdx
@@ -38,17 +49,22 @@ collections:
     folder: packages/fabric-website/src/pages
     fields:
       - { name: title, label: Title }
-      - label: Content
-        name: content
-        widget: list
-        fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Copy, name: copy, widget: fabricmarkdown }
-  - label: Dog
-    name: dog
+      - {
+          label: Content,
+          name: content,
+          widget: list,
+          fields:
+            [
+              { label: Name, name: name, widget: string },
+              { label: Copy, name: copy, widget: markdown },
+            ],
+        }
+  - name: dog
+    label: Dog
     create: true
     folder: packages/fabric-website/content/dogs
     fields:
-      - { name: name, lable: Name }
-      - { name: age, lable: Age }
+      - { name: title, lable: Name }
+      - { name: breed, lable: Breed }
+      - { name: cute, lable: Cute, widget: boolean }
       - { name: photo, lable: Photo, widget: image }
