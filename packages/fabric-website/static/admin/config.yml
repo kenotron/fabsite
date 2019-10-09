@@ -48,8 +48,7 @@ collections:
     create: true
     folder: packages/fabric-website/src/pages
     fields:
-      - { name: title, label: File Name and Path }
-      - { name: name, label: Title }
+      - { name: title, label: Title }
       - {
           label: Content,
           name: content,
