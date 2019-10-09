@@ -11,7 +11,6 @@ overview: >-
 
 
   Figma toolkit
-  
 layout: >-
   * Use a drop-down menu when there are multiple choices that can be collapsed
   under one title. Or if the list of items is long or when space is constrained.
@@ -26,7 +25,8 @@ content: |-
   * If there isn’t a default option, use “Select an option” as placeholder text.
   * If “None” is an option, include it.
   * Write the choices using parallel construction.
-accessibility: a
-globalization: a
-behavior: a
+accessibility: "- Use the `aria-expanded` property to convey expanded and collapsed states to the screen readers.\r\n- Provide a static label to the dropdown.\r\n- Use the `aria-describedy` property to make sure the currently selected option is announced by a screen reader. \r\n- Make sure options are implemented inside a list so that screen readers could announce the position for every option. \r\n- Enter key should expand the dropdown.\r\n- When the dropdown is expanded, pressing Enter would collapse the dropdown and select the current highlighted option.\r\n- Selecting the Up/Down arrow should take the focus to next/prev option respectively.\r\n- Selecting the Home/End key should take the focus to first/last option respectively.\r\n- When the dropdown is collapsed, up/down arrow should expand the dropdown and place the focus on first/last option respectively.\r\n"
+globalization: ''
+behavior: ''
 ---
+
