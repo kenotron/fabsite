@@ -23,5 +23,5 @@ export default props => {
     pageContext: { frontmatter }
   } = props;
 
-  return <Page>Hello</Page>;
+  return <Page>{props.children}</Page>;
 };
