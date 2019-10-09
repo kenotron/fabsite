@@ -10,8 +10,8 @@ public_folder: assets
 
 collections:
   - name: components
-    extension: 'mdx'
-    format: 'frontmatter'
+    extension: mdx
+    format: frontmatter
     label: Components
     folder: packages/fabric-website/content/components
     create: true
@@ -24,10 +24,17 @@ collections:
       - { name: accessibility, label: accessibility, widget: fabricmarkdown }
       - { name: globalization, label: globalization, widget: fabricmarkdown }
       - { name: behavior, label: behavior, widget: fabricmarkdown }
-  - label: 'Pages'
-    name: 'pages'
-    extension: 'mdx'
-    format: 'frontmatter'
+      - name: examples
+        label: Examples
+        widget: list
+        fields:
+          - { name: title, label: Title }
+          - { name: image, label: Image, widget: image }
+  - label: Pages
+    name: pages
+    extension: mdx
+    format: frontmatter
+    create: true
     folder: packages/fabric-website/src/pages
     fields:
       - { name: title, label: Title }
@@ -37,3 +44,10 @@ collections:
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Copy, name: copy, widget: fabricmarkdown }
+  - label: People
+    name: people
+    folder: packages/fabric-website/content/people
+    fields:
+      - { name: name, lable: Name }
+      - { name: title, lable: Title }
+      - { name: color, lable: Favorite Color }
