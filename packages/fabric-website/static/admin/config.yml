@@ -3,7 +3,7 @@ backend:
   repo: kenotron/fabsite
   branch: master
 publish_mode: editorial_workflow
-media_folder: static/assets
+media_folder: packages/fabric-site/static/assets
 public_folder: assets
 collections:
   - name: components
