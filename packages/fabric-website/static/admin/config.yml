@@ -15,22 +15,32 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: path, label: Path }
-      - { name: overview, label: overview, widget: markdown }
-      - { name: layout, label: layout, widget: markdown, required: false }
-      - { name: content, label: content, widget: markdown, required: false }
+      - { name: overview, label: overview, widget: fabricmarkdown }
+      - { name: layout, label: layout, widget: fabricmarkdown, required: false }
+      - {
+          name: content,
+          label: content,
+          widget: fabricmarkdown,
+          required: false,
+        }
       - {
           name: accessibility,
           label: accessibility,
-          widget: markdown,
+          widget: fabricmarkdown,
           required: false,
         }
       - {
           name: globalization,
           label: globalization,
-          widget: markdown,
+          widget: fabricmarkdown,
           required: false,
         }
-      - { name: behavior, label: behavior, widget: markdown, required: false }
+      - {
+          name: behavior,
+          label: behavior,
+          widget: fabricmarkdown,
+          required: false,
+        }
       - {
           name: examples,
           label: Examples,
@@ -41,30 +51,22 @@ collections:
               { name: image, label: Image, widget: image },
             ],
         }
-  - label: Pages
-    name: pages
+  - label: Docs
+    name: docs
     extension: mdx
     format: frontmatter
     create: true
-    folder: packages/fabric-website/src/pages
+    folder: packages/fabric-website/content/docs
     fields:
       - { name: title, label: Title }
+      - { name: path, label: Path }
       - {
-          label: Content,
-          name: content,
+          label: Cards,
+          name: cards,
           widget: list,
           fields:
             [
-              { label: Name, name: name, widget: string },
-              { label: Text, name: text, widget: markdown },
+              { label: Title, name: title, widget: string },
+              { label: Text, name: text, widget: fabricmarkdown },
             ],
         }
-  - name: dog
-    label: Dog
-    create: true
-    folder: packages/fabric-website/content/dogs
-    fields:
-      - { name: title, lable: Name }
-      - { name: breed, lable: Breed }
-      - { name: cute, lable: Cute, widget: boolean }
-      - { name: photo, lable: Photo, widget: image }
