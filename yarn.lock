@@ -7449,6 +7449,22 @@ gatsby-plugin-react-helmet@^3.1.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-remark-react-live@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remark-react-live/-/gatsby-plugin-remark-react-live-0.0.2.tgz#b0252fc0a8446a98174b4699f7e19be40e334622"
+  integrity sha512-KmnyyHmvJ4DODrmsSMqV2SP0sbJAnX91Kuvl2L1Uhp0urZ/yvxwHTgdLkEeI7m5CT6A9wj3qEaBvoq7VhPXzrQ==
+  dependencies:
+    "@babel/parser" "^7.5.5"
+    "@babel/traverse" "7.4.5"
+    gatsby "^2.13.41"
+    gatsby-plugin-mdx "^1.0.17"
+    lodash "^4.17.15"
+    prism-react-renderer "0.1.7"
+    react-live "^2.1.2"
+    unist-builder "^1.0.4"
+    unist-util-modify-children "^1.1.4"
+    unist-util-visit "^1.4.1"
+
 gatsby-plugin-sharp@^2.2.28:
   version "2.2.28"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.28.tgz#673c503a9585c88e66bb82e3c76ff860c006d917"
@@ -8678,9 +8694,9 @@ homedir-polyfill@^1.0.1:
     parse-passwd "^1.0.0"
 
 hosted-git-info@^2.1.4, hosted-git-info@^2.6.0:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
-  integrity sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hpack.js@^2.1.6:
   version "2.1.6"
