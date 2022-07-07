@@ -7449,6 +7449,22 @@ gatsby-plugin-react-helmet@^3.1.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-remark-react-live@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remark-react-live/-/gatsby-plugin-remark-react-live-0.0.2.tgz#b0252fc0a8446a98174b4699f7e19be40e334622"
+  integrity sha512-KmnyyHmvJ4DODrmsSMqV2SP0sbJAnX91Kuvl2L1Uhp0urZ/yvxwHTgdLkEeI7m5CT6A9wj3qEaBvoq7VhPXzrQ==
+  dependencies:
+    "@babel/parser" "^7.5.5"
+    "@babel/traverse" "7.4.5"
+    gatsby "^2.13.41"
+    gatsby-plugin-mdx "^1.0.17"
+    lodash "^4.17.15"
+    prism-react-renderer "0.1.7"
+    react-live "^2.1.2"
+    unist-builder "^1.0.4"
+    unist-util-modify-children "^1.1.4"
+    unist-util-visit "^1.4.1"
+
 gatsby-plugin-sharp@^2.2.28:
   version "2.2.28"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.28.tgz#673c503a9585c88e66bb82e3c76ff860c006d917"
@@ -11116,9 +11132,9 @@ modify-values@^1.0.0:
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
 moment@^2.21.0, moment@^2.24.0:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
-  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
