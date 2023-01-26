@@ -7449,6 +7449,22 @@ gatsby-plugin-react-helmet@^3.1.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-remark-react-live@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remark-react-live/-/gatsby-plugin-remark-react-live-0.0.2.tgz#b0252fc0a8446a98174b4699f7e19be40e334622"
+  integrity sha512-KmnyyHmvJ4DODrmsSMqV2SP0sbJAnX91Kuvl2L1Uhp0urZ/yvxwHTgdLkEeI7m5CT6A9wj3qEaBvoq7VhPXzrQ==
+  dependencies:
+    "@babel/parser" "^7.5.5"
+    "@babel/traverse" "7.4.5"
+    gatsby "^2.13.41"
+    gatsby-plugin-mdx "^1.0.17"
+    lodash "^4.17.15"
+    prism-react-renderer "0.1.7"
+    react-live "^2.1.2"
+    unist-builder "^1.0.4"
+    unist-util-modify-children "^1.1.4"
+    unist-util-visit "^1.4.1"
+
 gatsby-plugin-sharp@^2.2.28:
   version "2.2.28"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.28.tgz#673c503a9585c88e66bb82e3c76ff860c006d917"
@@ -16325,9 +16341,9 @@ typescript@^3.5.1:
   integrity sha512-N7bceJL1CtRQ2RiG0AQME13ksR7DiuQh/QehubYcghzv20tnh+MQnQIuJddTmsbqYj+dztchykemz0zFzlvdQw==
 
 ua-parser-js@^0.7.18:
-  version "0.7.20"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"
-  integrity sha512-8OaIKfzL5cpx8eCMAhhvTlft8GYF8b2eQr6JkCyVdrgjcytyOmPCXrqXFcUnhonRpLlh5yxEZVohm6mzaowUOw==
+  version "0.7.33"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.33.tgz#1d04acb4ccef9293df6f70f2c3d22f3030d8b532"
+  integrity sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==
 
 uglify-js@3.4.x:
   version "3.4.10"
